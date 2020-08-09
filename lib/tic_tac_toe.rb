@@ -59,22 +59,16 @@ class TicTacToe
 
 #ask for input, get input, traslate input into index, if index is valid: make the move and show the board. Else: ask for imput again
 def turn
-  #Ask the user for their move by specifying a position between 1-9.
-   puts "Your Turn"
-  
-   is_valid = false 
-   while not is_valid
-     #Receive the user's input.
-     input = gets
-     #Translate that input into an index value.
-     index = input_to_index(input)
-     if valid_move?(index) 
-       is_valid = true 
-     end 
-   end 
-  move(index, current_player)
-  display_board
+  input = gets
+  player_move = input_to_index(input)
+  current = current_player
+  if valid_move?(player_move)
+    move(player_move, current)
+    display_board
+  else
+  input = gets
   end
+end
   
   
 #keeping track of the turn count    
